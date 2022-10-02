@@ -1,0 +1,143 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>MISION TIC 2022 RETO 2</title>
+</head>
+<!-- add jquery api -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<!-- add bootstrap -->
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+<!-- add the file with the script -->
+<script type="text/javascript" src="myScript.js"></script>
+<body>
+    <!-- cinema front -->
+    <h1 class="text-center">CINEMA</h1>
+    <form action="">
+        <div class="form-group">
+            <h4 class="label label-default" >Id: </h4>
+            <input class="form-control" type="number" id="clientId"> <br>
+        </div>
+
+        <div class="form-group">
+            <h4 class="label label-default" >Owner: </h4>
+            <input class="form-control" type="text" id="clientName"><br>
+        </div>
+
+        <div class="form-group">
+            <h4 class="label label-default" >Capacity: </h4>
+            <input class="form-control" type="text" id="clientEmail" ><br>
+        </div>
+
+        <div class="form-group">
+            <h4 class="label label-default" >Category Id: </h4>
+            <input class="form-control" type="number" id="clientAge"><br>
+        </div>
+
+        <div class="form-group">
+            <h4 class="label label-default" >Name: </h4>
+            <input class="form-control" type="number" id="clientAge"><br>
+        </div>
+
+    </form>
+    
+
+
+
+    <button class="btn btn-info" onclick="getClients()">GET CLIENTS</button>
+
+    <button class="btn btn-success" onclick="setClient()">SAVE CLIENTS</button>
+
+    <button class="btn btn-warning" onclick="updateClient()">UPDATE CLIENT</button><br><br>
+
+
+    <table class="table table-striped" id="clientsList">
+
+       
+    </table>
+
+    <!-- Clients front  -->
+    <h1 class="text-center">CLIENTS</h1>
+    <form action="">
+        <div class="form-group">
+            <h4 class="label label-default" >Client id: </h4>
+            <input class="form-control" type="number" id="clientId"> <br>
+        </div>
+
+        <div class="form-group">
+            <h4 class="label label-default" >Client name: </h4>
+            <input class="form-control" type="text" id="clientName"><br>
+        </div>
+
+        <div class="form-group">
+            <h4 class="label label-default" >Client email: </h4>
+            <input class="form-control" type="text" id="clientEmail" placeholder="name@example.com"><br>
+        </div>
+
+        <div class="form-group">
+            <h4 class="label label-default" >Client age: </h4>
+            <input class="form-control" type="number" id="clientAge"><br>
+        </div>
+
+    </form>
+    
+
+
+
+    <button class="btn btn-info" onclick="getClients()">GET CLIENTS</button>
+
+    <button class="btn btn-success" onclick="setClient()">SAVE CLIENTS</button>
+
+    <button class="btn btn-warning" onclick="updateClient()">UPDATE CLIENT</button><br><br>
+
+
+    <table class="table table-striped" id="clientsList">
+
+       
+    </table>
+
+    <!-- Message front  -->
+    <h1 class="text-center">MESSAGE</h1>
+    <form action="">
+        <div class="form-group">
+            <h4 class="label label-default" >Client id: </h4>
+            <input class="form-control" type="number" id="clientId"> <br>
+        </div>
+
+        <div class="form-group">
+            <h4 class="label label-default" >Client name: </h4>
+            <input class="form-control" type="text" id="clientName"><br>
+        </div>
+
+        <div class="form-group">
+            <h4 class="label label-default" >Client email: </h4>
+            <input class="form-control" type="text" id="clientEmail" placeholder="name@example.com"><br>
+        </div>
+
+        <div class="form-group">
+            <h4 class="label label-default" >Client age: </h4>
+            <input class="form-control" type="number" id="clientAge"><br>
+        </div>
+
+    </form>
+    
+
+
+
+    <button class="btn btn-info" onclick="getClients()">GET CLIENTS</button>
+
+    <button class="btn btn-success" onclick="setClient()">SAVE CLIENTS</button>
+
+    <button class="btn btn-warning" onclick="updateClient()">UPDATE CLIENT</button><br><br>
+
+
+    <table class="table table-striped" id="clientsList">
+
+       
+    </table>
+    
+</body>
+</html>
