@@ -405,13 +405,11 @@ function deleteClient(clientId){
             let cs= clients.items;
             //$('#clientsList').append("<h2>Clients List</h2>");
             $('#messagesList').empty();
-            $("#editMessage").empty();
-            $("#editMessage").append("<br>");
            if(cs.length > 0){
                 $('#messagesList').append("<thead><tr><th scope='col'>Id</th><th scope='col'>Message text</th><th scope='col'>Option</th></tr></thead><tbody></tbody>");
                  for(i = 0; i<cs.length; i++){
                      
-                     $('#messagesList').append("<tr><th scope='row'>"+cs[i].id+"</th><td>"+cs[i].messagetext+"</td><td>"+"<button class='btn btn-secondary' onclick='editMessage("+JSON.stringify(cs[i])+")'>EDIT</button>   <button class='btn btn-danger' onclick='deleteMessage("+cs[i].id+")'>DELETE</button></td></tr>");
+                     $('#messagesList').append("<tr><th scope='row'>"+cs[i].id+"</th><td>"+cs[i].messagetext+"</td><td>"+"<button class='btn btn-warning' onclick='updateMessage()'>UPDATE MESSAGE</button>  <button class='btn btn-danger' onclick='deleteMessage("+cs[i].id+")'>DELETE</button></td></tr>");
 
                  }
            }else{
@@ -474,20 +472,13 @@ function setMessage(){
     }
 
     
-}
 
-function editMessage(item){
-    $("#editMessage").append(" <div class=' p-2 rounded border border-secondary' ><form action=''><div class='form-group'><h4 class='label label-default' >Id: </h4><input disabled class='form-control' type='number' id='messageIdEdit'></div><div class='form-group'><h4 class='label label-default' >Message Text: </h4><input class='form-control' type='text' id='messageTextEdit'></div></form></div><br><button class='btn btn-warning' onclick='updateMessage()'>UPDATE MESSAGE</button><br><br><br><br>");
-    //console.log(item);
-    $("#messageIdEdit").val(item.id);
-    $("#messageTextEdit").val(item.messagetext);
     
-
 }
 
 function updateMessage(){
-    let id = $("#messageIdEdit").val();
-    let messageText = $("#messageTextEdit").val();
+    let id = $("#messageId").val();
+    let messageText = $("#messageText").val();
 
     let data = {
         id: id,
@@ -509,8 +500,8 @@ function updateMessage(){
         success: function(json){
             console.log(json);
             //Clean the inputs
-            $("#messageIdEdit").val('');
-            $("#messageTextEdit").val('');
+            $("#messageId").val('');
+            $("#messageText").val('');
             getMessages();
         },
         error: function(xhr, status){
@@ -519,7 +510,6 @@ function updateMessage(){
         },
         complete: function(xhr, status){
             //alert("Request made");
-            $("#messageAlert").append("<div class='alert alert-success' role='alert'>Update successfull!</div>");
             
         }
     });
@@ -557,7 +547,6 @@ function deleteMessage(messageId){
         },
         complete: function(xhr, status){
             //alert("Request made");
-            $("#messageAlert").append("<div class='alert alert-success' role='alert'>Delete successfull!</div>");
             
         }
     });

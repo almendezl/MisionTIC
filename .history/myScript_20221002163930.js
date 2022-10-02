@@ -474,13 +474,15 @@ function setMessage(){
     }
 
     
+
+    
 }
 
 function editMessage(item){
-    $("#editMessage").append(" <div class=' p-2 rounded border border-secondary' ><form action=''><div class='form-group'><h4 class='label label-default' >Id: </h4><input disabled class='form-control' type='number' id='messageIdEdit'></div><div class='form-group'><h4 class='label label-default' >Message Text: </h4><input class='form-control' type='text' id='messageTextEdit'></div></form></div><br><button class='btn btn-warning' onclick='updateMessage()'>UPDATE MESSAGE</button><br><br><br><br>");
+    $("#editMessage").append(" <div class=' p-2 rounded border border-secondary' ><form action=''><div class='form-group'><h4 class='label label-default' >Id: </h4><input disabled class='form-control' type='number' id='clientIdEdit'></div><div class='form-group'><h4 class='label label-default' >Message Text: </h4><input class='form-control' type='text' id='messageTextEdit'></div></form></div><br><button class='btn btn-warning' onclick='updateMessage()'>UPDATE MESSAGE</button><br><br><br><br>");
     //console.log(item);
     $("#messageIdEdit").val(item.id);
-    $("#messageTextEdit").val(item.messagetext);
+    $("#messageTextEdit").val(item.messageText);
     
 
 }

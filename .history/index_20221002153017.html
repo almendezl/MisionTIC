@@ -6,20 +6,42 @@
     <link rel="stylesheet" href="styles.css">
     <title>MISION TIC 2022 RETO 2</title>
 </head>
-<!-- add jquery api -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <!-- add bootstrap -->
+
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 <!-- add the file with the script -->
 <script type="text/javascript" src="myScript.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.5.3/bootbox.min.js" integrity="sha512-U3Q2T60uOxOgtAmm9VEtC3SKGt9ucRbvZ+U3ac/wtvNC+K21Id2dNHzRUC7Z4Rs6dzqgXKr+pCRxx5CyOsnUzg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.5.3/bootbox.js" integrity="sha512-OMYI9iOelB12PWdWHfU6XouDuUvszFZEywO4W9KFJGP3aj/nP5UECd5ctMqRm+/9Qk3oOFqhbXVi6cJAqlAUuA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<!-- add jquery api -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
 <body>
+
+    <a class="btn" data-toggle="modal" href="#myModal">Launch Modal</a>
+
+
+<div class="modal hide" id="myModal"><!-- note the use of "hide" class -->
+  <div class="modal-header">
+    <button class="close" data-dismiss="modal">×</button>
+    <h3>Modal header</h3>
+  </div>
+  <div class="modal-body">
+    <p>One fine body…</p>
+  </div>
+  <div class="modal-footer">
+    <a href="#" class="btn" data-dismiss="modal">Close</a><!-- note the use of "data-dismiss" -->
+    <a href="#" class="btn btn-primary">Save changes</a>
+  </div>
+</div>
     <!-- cinema front -->
     <div class=" p-2 rounded border border-secondary" >
         <h1 class="text-center">CINEMA</h1>
+
         <form action="">
             <div class="form-group">
                 <h4 class="label label-default" >Id: </h4>
-                <input  class="form-control" type="number" id="cinemaId">
+                <input class="form-control" type="number" id="cinemaId">
             </div>
 
             <div class="form-group">
@@ -49,18 +71,17 @@
 
     </div>
 
+
+
     <button class="btn btn-info" onclick="getCinemas()">GET CINEMAS</button>
 
-    <button class="btn btn-success" onclick="setCinema()">SAVE CINEMA</button><br>
-    
-    <div id="editCinema">
-        <br>
+    <button class="btn btn-success" onclick="setCinema()">SAVE CINEMA</button>
 
-    </div>
-    
+    <button class="btn btn-warning" onclick="updateCinema()">UPDATE CINEMA</button><br><br>
 
 
     <table class="table table-striped" id="cinemasList">
+
        
     </table>
 
@@ -96,14 +117,14 @@
         
     </div>
 
+
+
     <button class="btn btn-info" onclick="getClients()">GET CLIENTS</button>
 
     <button class="btn btn-success" onclick="setClient()">SAVE CLIENT</button>
 
-    <div id="editClient">
-        <br>
+    <button class="btn btn-warning" onclick="updateClient()">UPDATE CLIENT</button><br><br>
 
-    </div>
 
     <table class="table table-striped" id="clientsList">
 
@@ -140,15 +161,34 @@
 
     <button class="btn btn-success" onclick="setMessage()">SAVE MESSAGE</button>
 
-    <div id="editMessage">
-        <br>
+    <button class="btn btn-warning" onclick="updateMessage()">UPDATE MESSAGE</button><br><br>
 
-    </div>
 
     <table class="table table-striped" id="messagesList">
 
        
     </table>
+
+    <!-- Modal eliminar-->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Delete</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
     
 </body>
 </html>

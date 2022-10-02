@@ -108,6 +108,8 @@ function setCinema(){
         $("#cinemaAlert").append("<div class='alert alert-danger' role='alert'>There can be no empty fields!</div>");
     }
 
+    
+
 }
 
 function updateCinema(){
@@ -153,7 +155,6 @@ function updateCinema(){
         },
         complete: function(xhr, status){
             //alert("Request made");
-            $("#cinemaAlert").append("<div class='alert alert-success' role='alert'>Update successfull!</div>");
             
         }
     });
@@ -194,7 +195,6 @@ function deleteCinema(cinemaId){
         },
         complete: function(xhr, status){
             //alert("Request made");
-            $("#cinemaAlert").append("<div class='alert alert-success' role='alert'>Delete successfull!</div>");
             
         }
     });
@@ -216,13 +216,11 @@ function getClients(){
             let cs= clients.items;
             //$('#clientsList').append("<h2>Clients List</h2>");
             $('#clientsList').empty();
-            $("#editClient").empty();
-            $("#editClient").append("<br>");
             if(cs.length > 0){
                 $('#clientsList').append("<thead><tr><th scope='col'>Id</th><th scope='col'>Name</th><th scope='col'>Email</th><th scope='col'>Age</th> <th scope='col'>Option</th></tr></thead><tbody></tbody>");
                 for(i = 0; i<cs.length; i++){
                     //$('#clientsList').append("<b>"+cs[i].id+" "+cs[i].name+" </b> "+cs[i].email+"   <button class='btn btn-danger'    onclick='deleteClient("+cs[i].id+")'>DELETE</button>"+"<br>");
-                    $('#clientsList').append("<tr><th scope='row'>"+cs[i].id+"</th><td>"+cs[i].name+"</td><td>"+cs[i].email+"</td><td>" +cs[i].age+"</td><td>"+"<button class='btn btn-secondary' onclick='editClient("+JSON.stringify(cs[i])+")'>EDIT</button>  <button class='btn btn-danger' onclick='deleteClient("+cs[i].id+")'>DELETE</button></td></   tr>");
+                    $('#clientsList').append("<tr><th scope='row'>"+cs[i].id+"</th><td>"+cs[i].name+"</td><td>"+cs[i].email+"</td><td>" +cs[i].age+"</td><td>"+"<button class='btn btn-danger' onclick='deleteClient("+cs[i].id+")'>DELETE</button></td></   tr>");
 
                 }
             }else{
@@ -290,24 +288,17 @@ function setClient(){
         $("#clientAlert").append("<div class='alert alert-danger' role='alert'>There can be no empty fields!</div>");
     }
 
-}
-
-function editClient(item){
-    $("#editClient").append(" <div class=' p-2 rounded border border-secondary' ><form action=''><div class='form-group'><h4 class='label label-default' >Id: </h4><input disabled class='form-control' type='number' id='clientIdEdit'></div><div class='form-group'><h4 class='label label-default' >Name: </h4><input class='form-control' type='text' id='clientNameEdit'></div><div class='form-group'><h4 class='label label-default' >Email: </h4><input class='form-control' type='text' id='clientEmailEdit' ></div><div class='form-group'><h4 class='label label-default' >Age: </h4><input class='form-control' type='number' id='clientAgeEdit'></div></form></div><br><button class='btn btn-warning' onclick='updateClient()'>UPDATE CLIENT</button><br><br><br><br>");
-    //console.log(item);
-    $("#clientIdEdit").val(item.id);
-    $("#clientNameEdit").val(item.name);
-    $("#clientEmailEdit").val(item.email);
-    $("#clientAgeEdit").val(item.age);
     
+
+
 
 }
 
 function updateClient(){
-    let clientId = $("#clientIdEdit").val();
-    let clientName = $("#clientNameEdit").val();
-    let clientEmail = $("#clientEmailEdit").val();
-    let clientAge = $("#clientAgeEdit").val();
+    let clientId = $("#clientId").val();
+    let clientName = $("#clientName").val();
+    let clientEmail = $("#clientEmail").val();
+    let clientAge = $("#clientAge").val();
 
     let data = {
         id: clientId,
@@ -331,10 +322,10 @@ function updateClient(){
         success: function(json){
             console.log(json);
             //Clean the inputs
-            $("#clientIdEdit").val('');
-            $("#clientNameEdit").val('');
-            $("#clientEmailEdit").val('');
-            $("#clientAgeEdit").val('');
+            $("#clientId").val('');
+            $("#clientName").val('');
+            $("#clientEmail").val('');
+            $("#clientAge").val('');
             getClients();
         },
         error: function(xhr, status){
@@ -343,7 +334,6 @@ function updateClient(){
         },
         complete: function(xhr, status){
             //alert("Request made");
-            $("#clientAlert").append("<div class='alert alert-success' role='alert'>Update successfull!</div>");
             
         }
     });
@@ -383,7 +373,6 @@ function deleteClient(clientId){
         },
         complete: function(xhr, status){
             //alert("Request made");
-            $("#clientAlert").append("<div class='alert alert-success' role='alert'>Delete successfull!</div>");
             
         }
     });
@@ -405,13 +394,11 @@ function deleteClient(clientId){
             let cs= clients.items;
             //$('#clientsList').append("<h2>Clients List</h2>");
             $('#messagesList').empty();
-            $("#editMessage").empty();
-            $("#editMessage").append("<br>");
            if(cs.length > 0){
                 $('#messagesList').append("<thead><tr><th scope='col'>Id</th><th scope='col'>Message text</th><th scope='col'>Option</th></tr></thead><tbody></tbody>");
                  for(i = 0; i<cs.length; i++){
                      
-                     $('#messagesList').append("<tr><th scope='row'>"+cs[i].id+"</th><td>"+cs[i].messagetext+"</td><td>"+"<button class='btn btn-secondary' onclick='editMessage("+JSON.stringify(cs[i])+")'>EDIT</button>   <button class='btn btn-danger' onclick='deleteMessage("+cs[i].id+")'>DELETE</button></td></tr>");
+                     $('#messagesList').append("<tr><th scope='row'>"+cs[i].id+"</th><td>"+cs[i].messagetext+"</td><td>"+"<button       class='btn btn-danger' onclick='deleteMessage("+cs[i].id+")'>DELETE</button></td></tr>");
 
                  }
            }else{
@@ -474,20 +461,13 @@ function setMessage(){
     }
 
     
-}
 
-function editMessage(item){
-    $("#editMessage").append(" <div class=' p-2 rounded border border-secondary' ><form action=''><div class='form-group'><h4 class='label label-default' >Id: </h4><input disabled class='form-control' type='number' id='messageIdEdit'></div><div class='form-group'><h4 class='label label-default' >Message Text: </h4><input class='form-control' type='text' id='messageTextEdit'></div></form></div><br><button class='btn btn-warning' onclick='updateMessage()'>UPDATE MESSAGE</button><br><br><br><br>");
-    //console.log(item);
-    $("#messageIdEdit").val(item.id);
-    $("#messageTextEdit").val(item.messagetext);
     
-
 }
 
 function updateMessage(){
-    let id = $("#messageIdEdit").val();
-    let messageText = $("#messageTextEdit").val();
+    let id = $("#messageId").val();
+    let messageText = $("#messageText").val();
 
     let data = {
         id: id,
@@ -509,8 +489,8 @@ function updateMessage(){
         success: function(json){
             console.log(json);
             //Clean the inputs
-            $("#messageIdEdit").val('');
-            $("#messageTextEdit").val('');
+            $("#messageId").val('');
+            $("#messageText").val('');
             getMessages();
         },
         error: function(xhr, status){
@@ -519,7 +499,6 @@ function updateMessage(){
         },
         complete: function(xhr, status){
             //alert("Request made");
-            $("#messageAlert").append("<div class='alert alert-success' role='alert'>Update successfull!</div>");
             
         }
     });
@@ -557,7 +536,6 @@ function deleteMessage(messageId){
         },
         complete: function(xhr, status){
             //alert("Request made");
-            $("#messageAlert").append("<div class='alert alert-success' role='alert'>Delete successfull!</div>");
             
         }
     });
