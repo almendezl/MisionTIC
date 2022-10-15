@@ -18,6 +18,10 @@
     <div class=" p-2 rounded border border-secondary" >
         <h1 class="text-center">CINEMA</h1>
         <form action="">
+            <div class="form-group">
+                <h4 class="label label-default" >Id: </h4>
+                <input  class="form-control" type="number" id="cinemaId">
+            </div>
 
             <div class="form-group">
                 <h4 class="label label-default" >Owner: </h4>
@@ -37,10 +41,6 @@
             <div class="form-group">
                 <h4 class="label label-default" >Name: </h4>
                 <input class="form-control" type="text" id="cinemaName"><br>
-            </div>
-            <div class="form-group">
-                <h4 class="label label-default" >Description: </h4>
-                <input class="form-control" type="text" id="cinemaDescription"><br>
             </div>
 
         </form>
@@ -124,8 +124,8 @@
                 <input class="form-control" type="number" id="clientAge"><br>
             </div>
             <div class="form-group">
-                <h4 class="label label-default" >Password: </h4>
-                <input class="form-control" type="password" id="clientPassword">
+                <h4 class="label label-default" >Passwork: </h4>
+                <input class="form-control" type="password" id="clientId">
             </div>
 
         </form>
@@ -155,21 +155,14 @@
         <h1 class="text-center">MESSAGE</h1>
    
         <form action="" >
-            
+            <div class="form-group">
+                <h4 class="label label-default" >Id: </h4>
+                <input class="form-control" type="number" id="messageId">
+            </div>
     
             <div class="form-group">
                 <h4 class="label label-default" >Message text: </h4>
                 <input class="form-control" type="text" id="messageText"><br>
-            </div>
-
-            <div class="form-group">
-                <h4 class="label label-default" >Client: </h4>
-                <input class="form-control" type="number" id="messageClient">
-            </div>
-
-            <div class="form-group">
-                <h4 class="label label-default" >Cinema: </h4>
-                <input class="form-control" type="number" id="messageCinema">
             </div>
     
     
@@ -197,56 +190,7 @@
        
     </table>
 
-<!-- RESERVATION    front  -->
-<div class=" p-2 rounded border border-secondary" >
-    <h1 class="text-center">RESERVATION</h1>
 
-    <form action="" >
-        
-
-        <div class="form-group">
-            <h4 class="label label-default" >Start Date: </h4>
-            <input class="form-control" type="datetime-local" id="reservationStart"><br>
-        </div>
-        <div class="form-group">
-            <h4 class="label label-default" >Devolution Date: </h4>
-            <input class="form-control" type="datetime-local" id="reservationDevolution"><br>
-        </div>
-
-        <div class="form-group">
-            <h4 class="label label-default" >Client: </h4>
-            <input class="form-control" type="number" id="reservationClient">
-        </div>
-
-        <div class="form-group">
-            <h4 class="label label-default" >Cinema: </h4>
-            <input class="form-control" type="number" id="reservationCinema">
-        </div>
-
-
-    </form>
-</div>
-<br>
-
-<div id="reservationAlert">
-    
-</div>
-
-
-
-<button class="btn btn-info" onclick="getReservations()">GET RESERVATION</button>
-
-<button class="btn btn-success" onclick="setReservation()">SAVE RESERVATION</button>
-
-<div id="editReservation">
-    <br>
-
-</div>
-
-<table class="table table-striped" id="reservationsList">
-
-   
-</table>
      
     
 </body>

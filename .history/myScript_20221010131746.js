@@ -204,40 +204,6 @@ function getMessage(){
  */
 
  function setReservation(){
-    let client = $("#messageClient").val();
-    let messageText = $("#messageText").val();
-    let cinema = $("#messageCinema").val();
-    $("#messageAlert").empty();
-
-    if(client != '' && messageText != '' && cinema != ''){
-        let data = {
-            client: {"idClient":client},
-            messageText: messageText,
-            cinema:{"id":cinema}
-    
-        };
-    
-        let dataToSend = JSON.stringify(data);
-    
-        console.log(dataToSend);
-         //console.log(dataToSend);
-         var settings = {
-            "url": "http://150.136.80.156:80/api/Message/save",
-            "method": "POST",
-            "timeout": 0,
-            "headers": {
-              "Content-Type": "application/json"
-            },
-            "data": dataToSend,
-          };
-          
-          $.ajax(settings).done(function (response) {
-            console.log(response);
-            console.log('guardado');
-          });
-    }else{
-        $("#messageAlert").append("<div class='alert alert-danger' role='alert'>There can be no empty fields!</div>");
-    }
 
 }
 

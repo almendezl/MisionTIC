@@ -3,50 +3,7 @@ let urlClient = "https://gbc0751b79176df-fy68ude9ajgxmklv.adb.us-ashburn-1.oracl
 let urlMessage = "https://gbc0751b79176df-fy68ude9ajgxmklv.adb.us-ashburn-1.oraclecloudapps.com/ords/admin/message/message";
 
 
-/**
- * ---------------CINEMAS----------
- */
- function setCinema(){
-    let description = $("#cinemaDescription").val();
-    let owner = $("#cinemaOwner").val();
-    let capacity = $("#cinemaCapacity").val();
-    let category = $("#cinemaCategory").val();
-    let name = $("#cinemaName").val();
 
-    $("#cinemaAlert").empty();
-    if (description != "" && owner != "" && capacity != "" && category != "" && name != ""){
-        let data = {
-            description: description,
-            owner: owner,
-            capacity: capacity,
-            category: {"id":category},
-            name: name
-    
-        };
-    
-        let dataToSend = JSON.stringify(data);
-    
-        //console.log(dataToSend);
-        var settings = {
-            "url": "http://150.136.80.156:80/api/Cinema/save",
-            "method": "POST",
-            "timeout": 0,
-            "headers": {
-              "Content-Type": "application/json"
-            },
-            "data": dataToSend,
-          };
-          
-          $.ajax(settings).done(function (response) {
-            console.log(response);
-            console.log('guardado');
-          });
-    }else{
-        $("#cinemaAlert").append("<div class='alert alert-danger' role='alert'>There can be no empty fields!</div>");
-    }
-    
-
-}
 /**
  * ---------------------CATEGORY----------------
  */
@@ -112,18 +69,15 @@ function getCategory(){
  * ---------------CLIENT----------
  */
  function setClient(){
-    let clientPass = $("#clientPassword").val();
-    let clientName = $("#clientName").val();
-    let clientEmail = $("#clientEmail").val();
-    let clientAge = $("#clientAge").val();
-    $("#clientAlert").empty();
+    let name = $("#categoryName").val();
+    let description = $("#categoryDescription").val();
 
-    if(clientPass != '' && clientName != '' && clientEmail != '' && clientAge != '' && clientPass.length <=45 && clientName.length <=250 && clientEmail.length <=45 && clientAge.length <=100 ){
-        let data = {
-            password: clientPass,
-            name: clientName,
-            email: clientEmail,
-            age: clientAge
+
+    $("#categoryAlert").empty();
+    if (name != "" && description != "" && name.length <=45 && description.length <=250 ){
+        let data = {  
+            name: name,
+            description: description
     
         };
     
@@ -131,7 +85,7 @@ function getCategory(){
     
         //console.log(dataToSend);
         var settings = {
-            "url": "http://150.136.80.156:80/api/Client/save",
+            "url": "http://150.136.80.156:80/api/Category/save",
             "method": "POST",
             "timeout": 0,
             "headers": {
@@ -145,106 +99,14 @@ function getCategory(){
             console.log('guardado');
           });
     }else{
-        $("#clientAlert").append("<div class='alert alert-danger' role='alert'>There can be no empty fields!</div>");
+        $("#categoryAlert").append("<div class='alert alert-danger' role='alert'>There can be no empty fields!</div>");
     }
     
 
 }
 function getClients(){
-
+    
 }
-
-/**
- * -------------MESSAGE---------------
- */
-
-function setMessage(){
-    let client = $("#messageClient").val();
-    let messageText = $("#messageText").val();
-    let cinema = $("#messageCinema").val();
-    $("#messageAlert").empty();
-
-    if(client != '' && messageText != '' && cinema != ''){
-        let data = {
-            client: {"idClient":client},
-            messageText: messageText,
-            cinema:{"id":cinema}
-    
-        };
-    
-        let dataToSend = JSON.stringify(data);
-    
-        console.log(dataToSend);
-         //console.log(dataToSend);
-         var settings = {
-            "url": "http://150.136.80.156:80/api/Message/save",
-            "method": "POST",
-            "timeout": 0,
-            "headers": {
-              "Content-Type": "application/json"
-            },
-            "data": dataToSend,
-          };
-          
-          $.ajax(settings).done(function (response) {
-            console.log(response);
-            console.log('guardado');
-          });
-    }else{
-        $("#messageAlert").append("<div class='alert alert-danger' role='alert'>There can be no empty fields!</div>");
-    }
-
-}
-
-function getMessage(){
-
-}
-/**
- * -------------RESERVATION--------------------
- */
-
- function setReservation(){
-    let client = $("#messageClient").val();
-    let messageText = $("#messageText").val();
-    let cinema = $("#messageCinema").val();
-    $("#messageAlert").empty();
-
-    if(client != '' && messageText != '' && cinema != ''){
-        let data = {
-            client: {"idClient":client},
-            messageText: messageText,
-            cinema:{"id":cinema}
-    
-        };
-    
-        let dataToSend = JSON.stringify(data);
-    
-        console.log(dataToSend);
-         //console.log(dataToSend);
-         var settings = {
-            "url": "http://150.136.80.156:80/api/Message/save",
-            "method": "POST",
-            "timeout": 0,
-            "headers": {
-              "Content-Type": "application/json"
-            },
-            "data": dataToSend,
-          };
-          
-          $.ajax(settings).done(function (response) {
-            console.log(response);
-            console.log('guardado');
-          });
-    }else{
-        $("#messageAlert").append("<div class='alert alert-danger' role='alert'>There can be no empty fields!</div>");
-    }
-
-}
-
-function getReservations(){
-
-}
-
 
 // /**
 //  * ----------------CINEMAS ---------------------
